@@ -14,10 +14,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: run Tests
+      - name: run tests
         run: mvn clean test | tee test.log
       - name: build artifacts
-        run: mvn clean package - Dmaven.test.skip
+        run: mvn clean package -Dmaven.test.skip
       - name: set up artifacts
         run: mkdir artifacts && cp test.log.target/*.jar artifacts
       - uses: actions/upload-artifact@v3
